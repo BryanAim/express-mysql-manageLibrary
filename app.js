@@ -9,6 +9,7 @@ var booksRouter = require('./routes/books');
 var addBookRouter = require('./routes/add');
 var editBookRouter = require('./routes/edit');
 var updateBookRouter = require('./routes/update');
+var deleteBookRouter = require('./routes/delete');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/books', booksRouter);
 app.use('/books/add', addBookRouter);
 app.use('/books/edit/(:id)', editBookRouter);
 app.use('/books/update/:id', updateBookRouter);
+app.use('/books/delete/:id', deleteBookRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
