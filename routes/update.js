@@ -33,7 +33,7 @@ router.post('/update/:id', function(req, res, next) {
     }
 
     // update query
-    dbConn.query('UPDATE books SET ? WHERE id = ' + id.replace, form_data, function(err, result) {
+    dbConn.query('UPDATE books SET ? WHERE id = ' + id, form_data, function(err, result) {
       if (err) {
         // set flash message
         req.flash('error', err);
