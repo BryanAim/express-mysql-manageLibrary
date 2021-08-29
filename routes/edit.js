@@ -8,12 +8,12 @@ router.get('/', function(req, res, next) {
   
   let id = req.params.id;
 
-  dbConn.query('SELECT * FROM  books WHERE id = ' + id, function(err, rows, fields) {
+  dbConn.query('SELECT * FROM books WHERE id = ' + id, function(err, rows, fields) {
     if(err) throw err
 
     // if book is not found
     if (rows.length <= 0) {
-      req.flash('error', 'Book not found with id = ' + id)
+      req.flash('error', 'Book not found with id = ' + id);
       res.redirect('/books')
     } 
     // if book is found

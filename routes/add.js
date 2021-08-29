@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
     req.flash('error', "Please enter name and author");
 
     // render to add.ejs with error message
-    res.render('books/add', {
+    res.render('add', {
       name: name,
       author: author
     })
