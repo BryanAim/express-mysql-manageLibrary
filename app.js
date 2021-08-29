@@ -11,7 +11,7 @@ var connection  = require('./lib/db');
 
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
-var addBookRouter = require('./routes/add');
+// var addBookRouter = require('./routes/add');
 var editBookRouter = require('./routes/edit');
 // var updateBookRouter = require('./routes/update');
 // var deleteBookRouter = require('./routes/delete');

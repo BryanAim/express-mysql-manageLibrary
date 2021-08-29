@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 // display add book page
 router.get('/add', function(req, res, next) {    
     // render to add.ejs
-    res.render('books/add', {
+    res.render('add', {
         name: '',
         author: ''        
     })
@@ -40,7 +40,7 @@ router.post('/add', function(req, res, next) {
         // set flash message
         req.flash('error', "Please enter name and author");
         // render to add.ejs with flash message
-        res.render('books/add', {
+        res.render('add', {
             name: name,
             author: author
         })
@@ -61,7 +61,7 @@ router.post('/add', function(req, res, next) {
                 req.flash('error', err)
                  
                 // render to add.ejs
-                res.render('books/add', {
+                res.render('add', {
                     name: form_data.name,
                     author: form_data.author                    
                 })
