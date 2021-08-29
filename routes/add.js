@@ -4,7 +4,7 @@ var router = express.Router();
 var dbConn = require('../lib/db');
 
 /* GET users listing. */
-router.get('/add', function(req, res, next) {
+router.get('/', function(req, res, next) {
   // respond with add.ejs
   res.render('add', {
     name: '',
