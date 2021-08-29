@@ -19,7 +19,7 @@
 			Edit Book
 		</div>
         <div class="card-body">
-            <form action="/books/update/<%= id %>" method="post">
+            <form action="/books/update/<%= id %>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Name:</label>
                     <input type="text" class="form-control" name="name" value="<%= name %>" autocomplete="off">

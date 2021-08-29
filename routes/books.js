@@ -166,7 +166,7 @@ router.post('/update/:id', function(req, res, next) {
                 // set flash message
                 req.flash('error', err)
                 // render to edit.ejs
-                res.render('books/edit', {
+                res.render('edit', {
                     id: req.params.id,
                     name: form_data.name,
                     author: form_data.author
