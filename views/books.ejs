@@ -36,6 +36,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Author</th>
                     <th width="200px">Action</th>
@@ -45,6 +46,7 @@
             <% for(var i = 0; i< data.length; i++) { %>
                 <tr>
                     <th scope="row"><%= (i+1) %></th>
+                    <td><img alt="Book Pic" src="http://localhost:3000/images/uploaded_images/<%=data[i].image%>" class="img-responsive" style="width:50px;"></td>
                     <td><%= data[i].name%></td>
                     <td><%= data[i].author%></td>
                     <td>

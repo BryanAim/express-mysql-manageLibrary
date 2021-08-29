@@ -23,35 +23,66 @@ router.get('/add', function(req, res, next) {
     // render to add.ejs
     res.render('add', {
         name: '',
-        author: ''        
+        author: '',
+        image: ''
     })
 })
 
 // add a new book
 router.post('/add', function(req, res, next) {    
 
+    if (!req.files)
+        return res.status(400).send('No files were uploaded.');
+    
+
     let name = req.body.name;
     let author = req.body.author;
+    var file = req.files.uploaded_image;
+    var img_name=file.name;
     let errors = false;
+
+    
 
     if(name.length === 0 || author.length === 0) {
         errors = true;
+        
 
         // set flash message
         req.flash('error', "Please enter name and author");
         // render to add.ejs with flash message
         res.render('add', {
             name: name,
-            author: author
+            author: author,
+            image: img_name
         })
     }
 
     // if no error
     if(!errors) {
 
+
+        if(file.mimetype == "image/jpeg" ||file.mimetype == "image/png"||file.mimetype == "image/gif" ){
+                                 
+            file.mv('public/images/uploaded_images/'+file.name, function(err) {
+                           
+                if (err)
+
+                  return res.status(500).send(err);
+                     });
+        } else {
+          req.flash('error', "This format is not allowed , please upload file with '.png','.gif','.jpg'");
+          res.render('add', {
+            name: name,
+            author: author,
+            image: img_name
+        });
+        }
+
+
         var form_data = {
             name: name,
-            author: author
+            author: author,
+            image: img_name
         }
         
         // insert query
@@ -63,7 +94,8 @@ router.post('/add', function(req, res, next) {
                 // render to add.ejs
                 res.render('add', {
                     name: form_data.name,
-                    author: form_data.author                    
+                    author: form_data.author ,
+                    image: img_name                
                 })
             } else {                
                 req.flash('success', 'Book successfully added');

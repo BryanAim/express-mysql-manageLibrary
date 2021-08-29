@@ -7,6 +7,7 @@ var logger = require('morgan');
 var flash = require('express-flash');
 var session = require('express-session');
 var mysql = require('mysql');
+var fileUpload = require('express-fileupload')
 var connection  = require('./lib/db');
 
 var indexRouter = require('./routes/index');
@@ -33,6 +34,7 @@ app.use(session({
 }))
 
 app.use(flash());
+app.use(fileUpload());
 
 app.use('/', indexRouter);
 app.use('/books', booksRouter);

@@ -19,7 +19,13 @@
 			Add Book
 		</div>
         <div class="card-body">
-            <form action="/books/add" method="post">
+            <form action="/books/add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="mob_no" class="col-md-3 control-label">Book Image</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="file" name="uploaded_image" accept=""/>
+                    </div>
+                </div>      
                 <div class="form-group">
                     <label>Name:</label>
                     <input type="text" class="form-control" name="name" value="<%= name %>" autocomplete="off">
