@@ -1,10 +1,9 @@
-// display books page
 var express = require('express');
 var router = express.Router();
 var dbConn = require('../lib/db');
 
 // update book data
-router.post('/update/:id', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
   let id = req.params.id;
   let name = req.body.name;
