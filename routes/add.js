@@ -43,7 +43,7 @@ router.post('/', function (req, res, next) {
         req.flash('error', err);
 
         // render to add.ejs
-        res.render('books/add', {
+        res.render('add', {
           name: form_data.name,
           author: form_data.author
         })
