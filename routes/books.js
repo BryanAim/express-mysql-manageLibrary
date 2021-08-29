@@ -3,8 +3,8 @@ var express = require('express');
 var router = express.Router();
 var dbConn = require('../lib/db');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+/* GET books page. */
+router.get('/books', function(req, res, next) {
 
   dbConn.query('SELECT * FROM books ORDER BY id desc', function (err, rows) {
 
