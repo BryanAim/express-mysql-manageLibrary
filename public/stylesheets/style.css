@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.card-holder  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
